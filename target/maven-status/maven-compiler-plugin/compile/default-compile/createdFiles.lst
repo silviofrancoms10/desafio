@@ -1,0 +1,13 @@
+br\com\imagemfilmes\desafio\service\PessoaService.class
+br\com\imagemfilmes\desafio\Application.class
+br\com\imagemfilmes\desafio\entity\Pedido.class
+br\com\imagemfilmes\desafio\service\ProdutoService.class
+br\com\imagemfilmes\desafio\dao\ProdutoDAO.class
+br\com\imagemfilmes\desafio\entity\PedidoItem.class
+br\com\imagemfilmes\desafio\entity\Produto.class
+br\com\imagemfilmes\desafio\dao\PessoaDAO.class
+br\com\imagemfilmes\desafio\controller\PedidoController.class
+br\com\imagemfilmes\desafio\entity\Pessoa.class
+br\com\imagemfilmes\desafio\dao\DAO.class
+br\com\imagemfilmes\desafio\controller\PessoaController.class
+br\com\imagemfilmes\desafio\controller\ProdutoController.class
