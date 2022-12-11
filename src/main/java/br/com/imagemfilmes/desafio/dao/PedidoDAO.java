@@ -19,20 +19,28 @@ public class PedidoDAO extends DAO{
 
     public List<Pedido> findAll() throws SQLException{
         try (PreparedStatement psmt = getConnection()
-                .prepareStatement("SELECT p.id, pes.nome, pi.produto_id FROM pedido p," +
-                        " pi.quantidade " +
-                        " INNER JOIN pedido_item pi ON p.id = pi.pedido_id" +
-                        " INNER JOIN produto prod ON pi.produto_id = prod.id" +
-                        " INNER JOIN pessoa pes ON p.pessoa_id = pes.id ")){
+                .prepareStatement(""" 
+                        SELECT * FROM pedido p
+                        INNER JOIN pedido_item pi ON p.id = pi.pedido_id
+                        INNER JOIN produto prod ON pi.produto_id = prod.id
+                        INNER JOIN pessoa pes ON p.pessoa_id = pes.id """ )){
             try (ResultSet rs = psmt.executeQuery()){
                 final List<Pedido> pedidos = new ArrayList<>();
                 while (rs.next()){
                     final Pedido pedido = new Pedido()
-                            .setId((long) rs.getInt("id"))
-                            .setPessoa((rs.getString("nome"))
-                            .setItens(rs.get("produto_id"));
+                            .setId((long) rs.getInt("id"));
 
+                    final Pessoa pessoa = new Pessoa()
+                            .setId(rs.getLong("id"))
+                            .setCpf(rs.getString("cpf"))
+                            .setNome(rs.getString("nome"));
+
+
+
+                    pedido.setPessoa(pessoa);
                     pedidos.add(pedido);
+
+
 
 
                 }
